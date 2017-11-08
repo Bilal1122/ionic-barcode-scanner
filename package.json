@@ -7,5 +7,29 @@
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0"
+  },
+  "cordova": {
+    "plugins": {
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "phonegap-plugin-barcodescanner": {},
+      "cordova-sqlite-storage": {}
+    },
+    "platforms": [
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "cordova-ios": "~4.5.2",
+    "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-splashscreen": "^4.0.3",
+    "cordova-plugin-statusbar": "^2.2.1",
+    "cordova-plugin-whitelist": "^1.3.1",
+    "cordova-sqlite-storage": "^2.0.4",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "phonegap-plugin-barcodescanner": "git+https://github.com/wildabeast/BarcodeScanner.git"
   }
 }

@@ -1,5 +1,15 @@
 {
   "name": "myBarcodeQRScanner",
   "app_id": "",
-  "type": "ionic1"
+  "type": "ionic1",
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  },
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
