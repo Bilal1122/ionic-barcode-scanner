@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cordovaSQLite, $location) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -32,12 +32,22 @@ angular.module('starter.controllers', [])
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-
+    var user_name = $scope.loginData.username
+    var password = $scope.loginData.password
+    var query = "SELECT app_admin.* FROM app_admin WHERE user_name=? AND password=?"
+    $cordovaSQLite.execute(db, query, [user_name, password]).then(function(result) {
+      if (result.rows.length > 0) {
+        $scope.closeLogin();
+        $location.path('/app/search');
+        // $location.path("/#/app/search");
+        // window.location.replace("/#/app/search");
+      }
+    });
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+    // $timeout(function() {
+    //   $scope.closeLogin();
+    // }, 1000);
   };
 })
 

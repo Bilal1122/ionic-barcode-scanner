@@ -1,9 +1,13 @@
-<ion-view view-title="Playlists">
-  <ion-content>
+<ion-view view-title="Scanned Barcodes">
+  <ion-content ng-controller="ExampleController">
     <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
+      <ion-item class="" ng-repeat="scanned_item in scannedItemArray" type="item-text-wrap">
+        <p>{{scanned_item.id}}</p>
+        <p>{{scanned_item.name}}</p>
+        <p>{{scanned_item.description}}</p>
+        <p>{{scanned_item.expiry_date}}</p>
+        <button class = "button" ng-click = "destroyScannedRecord({{scanned_item.scanned_item_id}})" style="background: orange;color: white;border-radius: 1px;margin-top: 10px;margin-bottom: 14px">Delete Record</button>
+      </ion-item></ion-list></ion-content></ion-view>//
     </ion-list>
   </ion-content>
 </ion-view>
